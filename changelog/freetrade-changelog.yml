@@ -1,0 +1,59 @@
+generated: '2026-08-04'
+method: searched
+source: https://freetrade.io/product
+scope: product
+notes: >-
+  Freetrade publishes a dated product-update stream rather than an API changelog —
+  there is no public API to version. Entries are consumer product/plan releases on
+  the mobile app and web platform. No semantic version numbers are published; each
+  entry is identified by its publication date and headline.
+versioning:
+  scheme: none-published
+  api_versioning: not-applicable
+  note: No public API, therefore no API version train, deprecation policy or Sunset header contract.
+feeds:
+- {label: Product updates, url: 'https://freetrade.io/product'}
+- {label: Company news, url: 'https://freetrade.io/company'}
+- {label: Market news and insights, url: 'https://freetrade.io/news'}
+- {label: Blog, url: 'https://freetrade.io/blog'}
+entries:
+- date: '2026-04-01'
+  title: The Freetrade Junior ISA is here
+  type: launch
+  breaking: false
+  highlights:
+  - Junior ISA account type launched with no account fee and no commission.
+- date: '2026-01-22'
+  title: Free pension. Free funds.
+  type: plan-change
+  breaking: false
+  highlights:
+  - Mutual funds, gilts and the self-invested personal pension (SIPP) made available on all plans, including Basic.
+- date: '2025-11-11'
+  title: Hundreds of new mutual funds available on Standard and Plus
+  type: catalog
+  breaking: false
+  highlights:
+  - Mutual fund universe expanded across the mobile app and web platform.
+- date: '2025-09-01'
+  title: Freetrade's subscription plans are getting an upgrade
+  type: plan-change
+  breaking: false
+  highlights:
+  - Basic/Standard/Plus plan structure revised; feature set on the free plan expanded.
+- date: '2025-06-09'
+  title: Vanguard mutual funds now available on Freetrade
+  type: catalog
+  breaking: false
+  highlights:
+  - 22 Vanguard mutual funds added for Plus customers.
+- date: '2025-06-09'
+  title: Reimagining Freetrade
+  type: brand
+  breaking: false
+  highlights:
+  - Brand and product refresh announced.
+x-evidence:
+  fetched: '2026-08-04'
+  url: https://freetrade.io/product
+  http_status: 200

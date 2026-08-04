@@ -1,18 +1,46 @@
 aid: freetrade
 name: Freetrade
-description: 'Freetrade is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Freetrade is a UK retail investment platform, founded in 2018 and headquartered
+  in London, that offers commission-free investing in more than 8,600 stocks, ETFs,
+  investment trusts, mutual funds, gilts and UK Treasury bills across four account
+  types — a stocks and shares ISA, a Junior ISA, a self-invested personal pension
+  (SIPP) and a general investment account — on three subscription plans (Basic at
+  £0/month, Standard and Plus). It operates a mobile app and a web platform at web.freetrade.io,
+  serves over 1.6 million users, and is authorised and regulated by the Financial
+  Conduct Authority (firm reference number 783189) as a member firm of the London
+  Stock Exchange. Freetrade Limited (company number 09797821) was acquired by IG Group
+  Holdings plc in April 2025 for £160m and continues to operate as an independently
+  branded business. Freetrade publishes no public developer API, developer portal,
+  OpenAPI/AsyncAPI/MCP contract or client SDK — a private GraphQL gateway backs its
+  own web platform but has introspection disabled and no published schema or terms
+  for third-party use — so its machine-readable public surface is a hand-curated
+  llms.txt at freetrade.io/llms.txt plus an Intercom-hosted help-centre llms.txt.'
 url: https://raw.githubusercontent.com/api-evangelist/freetrade/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
+x-tier: profiled
 x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-04'
 modified: '2026-08-04'
+image: https://cdn.prod.website-files.com/66289cd2c30bc8d40bd60733/66d57108811c51c4ec028669_f2cae9e0047401c7c4b8b8ef268df408_og-image_default.jpg
 tags:
 - Company
+- Investing
+- Stock Trading
+- Brokerage
+- Financial Services
+- Fintech
+- Pensions
+- ISA
+- Personal Finance
+- United Kingdom
 apis: []
+x-enrichment:
+  date: '2026-08-04'
+  status: enriched
+  artifacts_added: 8
+  pass: local-v1
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -20,4 +48,50 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
+  url: https://freetrade.io
+- type: About
+  url: https://freetrade.io/about
+- type: Blog
+  url: https://freetrade.io/blog
+- type: News
+  url: https://freetrade.io/news
+- type: ChangeLog
+  url: https://freetrade.io/product
+- type: ChangeLog
+  url: changelog/freetrade-changelog.yml
+- type: Pricing
+  url: https://freetrade.io/compare-plans
+- type: SignUp
+  url: https://web.freetrade.io/signup
+- type: Login
+  url: https://web.freetrade.io/login
+- type: TermsOfService
+  url: https://freetrade.io/terms-and-conditions-2
+- type: PrivacyPolicy
+  url: https://freetrade.io/legal/privacy-policy
+- type: Compliance
+  url: https://freetrade.io/legal/mifidpru-disclosures
+- type: Support
+  url: https://freetrade.io/contact
+- type: HelpCenter
+  url: https://help.freetrade.io/en/
+- type: Community
+  url: https://freetrade.io/community
+- type: Careers
+  url: https://freetrade.io/careers
+- type: GitHubOrganization
+  url: https://github.com/freetrade-io
+- type: LLMsTxt
+  url: llms/freetrade-llms.txt
+- type: LLMsTxt
+  url: llms/freetrade-help-llms.txt
+- type: WellKnown
+  url: well-known/freetrade-well-known.yml
+- type: Conformance
+  url: conformance/freetrade-conformance.yml
+- type: Packages
+  url: packages/freetrade-packages.yml
+- type: DomainSecurity
+  url: security/freetrade-domain-security.yml
+- type: SecondaryMarket
   url: https://forgeglobal.com/freetrade_stock/

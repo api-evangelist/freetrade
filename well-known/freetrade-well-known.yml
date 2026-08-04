@@ -1,0 +1,103 @@
+generated: '2026-08-04'
+method: probed
+source: live HTTP probes of every Freetrade public host
+notes: >-
+  Freetrade publishes no first-party /.well-known/ discovery surface. The single 200
+  on the whole estate is an Intercom-platform security.txt served from the CNAME'd
+  help-centre host; it names Intercom (not Freetrade) as the reporting party and
+  declares its canonical location at app.intercom.com, so it is recorded here as a
+  vendor artifact and is deliberately NOT wired as a Freetrade SecurityTxt pointer.
+hosts:
+- host: https://freetrade.io
+  role: marketing + product website (Webflow)
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+  - {path: /llms.txt, status: 200, file: ../llms/freetrade-llms.txt}
+  - {path: /robots.txt, status: 200, note: 'User-agent: * / Disallow: /*.pdf — no AI-crawler-specific rules'}
+- host: https://web.freetrade.io
+  role: authenticated web trading platform
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+- host: https://core-service-gateway.freetrade.io
+  role: private GraphQL gateway backing the web trading platform (discovered in the web.freetrade.io Content-Security-Policy connect-src)
+  documents:
+  - {path: /.well-known/security.txt, status: 403}
+  - {path: /.well-known/openid-configuration, status: 403}
+  - {path: /.well-known/oauth-authorization-server, status: 403}
+  - {path: /.well-known/oauth-protected-resource, status: 403}
+  - {path: /.well-known/agent-card.json, status: 403}
+  - {path: /.well-known/agent.json, status: 403}
+  - {path: /openapi.json, status: 403}
+- host: https://help.freetrade.io
+  role: help centre (Intercom-hosted, CNAME)
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: freetrade-help-security.txt
+    owner: Intercom
+    canonical: https://app.intercom.com/.well-known/security.txt
+    first_party: false
+    note: >-
+      Platform-vendor security.txt inherited from Intercom's help-centre hosting.
+      Contact/Policy point at bugcrowd.com/intercom and security@intercom.com — not
+      a Freetrade vulnerability-disclosure program.
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /llms.txt, status: 200, file: ../llms/freetrade-help-llms.txt}
+contract_discovery:
+  performed: '2026-08-04'
+  result: no-public-machine-readable-api-contract
+  summary: >-
+    Full STEP 0b contract discovery was run against every Freetrade host, including
+    the internal hosts named in the web platform's Content-Security-Policy. No
+    OpenAPI, Swagger, AsyncAPI or MCP contract exists on any Freetrade surface, and
+    Freetrade operates no developer portal. A real GraphQL endpoint DOES exist at
+    https://core-service-gateway.freetrade.io/graphql — it is the private gateway the
+    web trading platform calls — but it returns
+    {"errors":[{"message":"introspection has been disabled","extensions":{"code":"INTROSPECTION_DISABLED"}}]}
+    to an anonymous introspection query, publishes no SDL, no documentation, no
+    onboarding and no terms permitting third-party use. It is therefore recorded as
+    evidence, NOT wired as a GraphQL API pointer: it is an internal implementation
+    detail of Freetrade's own client, not a product offered to developers. No schema
+    is captured and none is inferred. Third-party "Freetrade API" packages on
+    npm/GitHub (FinKi wrappers, community Python packages) are unofficial and are not
+    recorded as Freetrade artifacts.
+  graphql:
+    endpoint: https://core-service-gateway.freetrade.io/graphql
+    public_product: false
+    documented: false
+    introspection: disabled
+    introspection_response: '{"errors":[{"message":"introspection has been disabled","extensions":{"code":"INTROSPECTION_DISABLED"}}]}'
+    http_status: 200
+    discovered_via: 'Content-Security-Policy connect-src on https://web.freetrade.io'
+    auth: 'Firebase Identity Platform (identitytoolkit.googleapis.com / securetoken.googleapis.com appear in the same CSP)'
+  probes:
+  - {url: 'https://core-service-gateway.freetrade.io/graphql', status: 200, note: 'POST introspection -> INTROSPECTION_DISABLED'}
+  - {url: 'https://core-service-gateway.freetrade.io/sdl', status: 403}
+  - {url: 'https://core-service-gateway.freetrade.io/schema.graphql', status: 403}
+  - {url: 'https://ff.freetrade.io/', status: 404, note: 'feature-flag host named in CSP; no public surface'}
+  - {url: 'https://freetrade.io/openapi.json', status: 404}
+  - {url: 'https://freetrade.io/api-docs', status: 404}
+  - {url: 'https://freetrade.io/api', status: 404}
+  - {url: 'https://freetrade.io/developers', status: 404}
+  - {url: 'https://api.freetrade.io/', status: 404}
+  - {url: 'https://api.freetrade.io/openapi.json', status: 404}
+  - {url: 'https://developer.freetrade.io/', status: 0, note: NXDOMAIN}
+  - {url: 'https://docs.freetrade.io/', status: 0, note: NXDOMAIN}
+  - {url: 'https://mcp.freetrade.io/', status: 0, note: NXDOMAIN}
+  - {url: 'https://status.freetrade.io/', status: 0, note: NXDOMAIN}
+  - {url: 'https://trust.freetrade.io/', status: 0, note: NXDOMAIN}
+  - {url: 'https://web.freetrade.io/openapi.json', status: 404}
+  - {url: 'https://web.freetrade.io/swagger.json', status: 404}
+  - {url: 'https://web.freetrade.io/api-docs', status: 404}
+  - {url: 'https://web.freetrade.io/graphql', status: 404}

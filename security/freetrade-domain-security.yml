@@ -1,0 +1,49 @@
+generated: '2026-08-04'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: freetrade.io
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Mar  8 23:59:59 2027 GMT
+  hsts: true
+  hsts_max_age: 31536000
+  hsts_include_subdomains: true
+  hsts_preload: true
+  server: cloudflare
+- host: web.freetrade.io
+  https: true
+  tls_version: TLSv1.3
+  hsts: true
+  hsts_max_age: 31536000
+  hsts_include_subdomains: true
+  hsts_preload: true
+  csp: true
+  x_content_type_options: nosniff
+  server: cloudflare
+  note: Authenticated web trading platform; strict CSP with nonce + strict-dynamic.
+- host: help.freetrade.io
+  https: true
+  tls_version: TLSv1.3
+  hsts: true
+  hsts_max_age: 31536000
+  hsts_include_subdomains: true
+  hsts_preload: true
+  csp: true
+  x_frame_options: DENY
+  x_content_type_options: nosniff
+  server: cloudflare
+  note: Intercom-hosted help centre (CNAME); response headers are Intercom's, not Freetrade's.
+domains:
+- domain: freetrade.io
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
+gaps:
+- No DNSSEC on freetrade.io.
+- No CAA records on freetrade.io.
+x-evidence:
+  fetched: '2026-08-04'
+  method: dig + openssl s_client + curl -I

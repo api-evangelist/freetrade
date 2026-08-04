@@ -1,0 +1,62 @@
+generated: '2026-08-04'
+method: searched
+source: https://github.com/freetrade-io
+notes: >-
+  Freetrade ships NO API client SDKs, because it publishes no public API. What it
+  does publish is a small set of open-source engineering utilities from its GitHub
+  organisation (freetrade-io), plus forks of third-party mobile SDKs it consumes.
+  These are catalogued here as the provider's genuine public package surface — they
+  are NOT client libraries for a Freetrade API, so no `SDKs` pointer is wired in
+  apis.yml. Both npm packages were last published in 2022 and are effectively dormant.
+  Registries probed with no first-party result: PyPI, RubyGems, Packagist, crates.io,
+  Maven Central, NuGet, pkg.go.dev.
+packages:
+- language: typescript
+  registry: npm
+  name: ts-firebase-driver-testing
+  version: 1.0.15
+  url: https://www.npmjs.com/package/ts-firebase-driver-testing
+  repository: https://github.com/freetrade-io/ts-firebase-driver-testing
+  install: npm install ts-firebase-driver-testing
+  license: MIT
+  official: true
+  kind: engineering-utility
+  description: Swap out Firebase as a driver for in-process testing.
+  last_published: '2022-05-22'
+  note: Published from the freetrade-io GitHub organisation by a Freetrade engineer (npm maintainer hugh.freetrade.io).
+- language: typescript
+  registry: npm
+  name: ts-business-time
+  version: 1.1.2
+  url: https://www.npmjs.com/package/ts-business-time
+  repository: https://github.com/hughgrigg/ts-business-time
+  fork: https://github.com/freetrade-io/ts-business-time
+  install: npm install ts-business-time
+  license: MIT
+  official: false
+  kind: engineering-utility
+  description: Business time / market-hours logic for TypeScript.
+  last_published: '2022-05-22'
+  note: >-
+    Authored by Hugh Grigg under a personal GitHub namespace and published by the same
+    npm maintainer account as the Freetrade package above; Freetrade mirrors it in its
+    org. Recorded as related-but-not-first-party.
+repositories:
+- {name: LowProfile, url: 'https://github.com/freetrade-io/LowProfile', description: 'Mac utility for inspecting Apple Configuration Profile payloads', published_package: false}
+- {name: lightweight-charts-public, url: 'https://github.com/freetrade-io/lightweight-charts-public', description: 'Fork of TradingView lightweight-charts', published_package: false, fork: true}
+- {name: forked-airship-ios, url: 'https://github.com/freetrade-io/forked-airship-ios', description: 'Fork of the Airship iOS SDK', published_package: false, fork: true}
+- {name: forked-airship-android, url: 'https://github.com/freetrade-io/forked-airship-android', description: 'Fork of the Airship Android SDK', published_package: false, fork: true}
+- {name: forked-charts-apple, url: 'https://github.com/freetrade-io/forked-charts-apple', description: 'Fork of Charts (MPAndroidChart for Apple platforms)', published_package: false, fork: true}
+- {name: ft-fork-PanModal, url: 'https://github.com/freetrade-io/ft-fork-PanModal', description: 'Fork of PanModal bottom-sheet presentation API for iOS', published_package: false, fork: true}
+unofficial_third_party:
+  note: >-
+    Community-authored "Freetrade API" wrappers exist on GitHub and Medium (FinKi
+    wrappers, unofficial Python packages). They are NOT Freetrade artifacts, are not
+    endorsed by Freetrade, and are deliberately excluded from `packages[]`.
+x-evidence:
+  fetched: '2026-08-04'
+  sources:
+  - {url: 'https://api.github.com/orgs/freetrade-io/repos', http_status: 200, public_repos: 11}
+  - {url: 'https://registry.npmjs.org/ts-firebase-driver-testing', http_status: 200}
+  - {url: 'https://registry.npmjs.org/ts-business-time', http_status: 200}
+  - {url: 'https://pypi.org/pypi/freetrade/json', http_status: 404}
