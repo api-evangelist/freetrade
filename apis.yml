@@ -20,7 +20,7 @@ x-type: company
 x-source: harvest:secondary-market
 x-tier: profiled
 x-tier-reason: harvest
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-08-04'
 modified: '2026-08-04'
 image: https://cdn.prod.website-files.com/66289cd2c30bc8d40bd60733/66d57108811c51c4ec028669_f2cae9e0047401c7c4b8b8ef268df408_og-image_default.jpg
