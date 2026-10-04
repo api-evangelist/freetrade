@@ -52,7 +52,7 @@ tags:
 - Investing
 - Stock Trading
 - Brokerage
-- Financial-Services
+- Financial Services
 - Fintech
 - Pensions
 - ISA
@@ -69,6 +69,7 @@ tags_raw:
 - ISA
 - Personal Finance
 - United Kingdom
+- Financial-Services
 apis: []
 x-enrichment:
   date: '2026-08-04'
